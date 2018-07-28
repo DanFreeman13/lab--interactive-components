@@ -66,5 +66,58 @@ var pressHTML = `
 
 /* 01 - UI TABS :: Your code below.... */
 
+var navElements = document.querySelectorAll('.ui-tabs__tabslist li')
+
+navElements.forEach(function(navs) {
+  navs.addEventListener('click', function(e) {
+    var clicked = e.currentTarget;
+
+    // console.log(clicked)
+
+    var claseActual = clicked.className;
+    var tabActual = clicked.dataset.tab;
+
+    // console.log(tabActual)
+    var initial = 0;
+
+        if(tabActual === 'membership'){
+          document.querySelector('.ui-tabs__content').innerHTML = membershipHTML;
+          clicked.classList.toggle('ui-tabs__tab--selected');
+          navElements.forEach(function(navs) {
+            if(navs !== clicked) {
+              navs.classList='ui-tabs__tab';
+            }
+          });
+        } else
+        if(tabActual === 'programs'){
+          document.querySelector('.ui-tabs__content').innerHTML = programsHTML;
+          clicked.classList.toggle('ui-tabs__tab--selected');
+          navElements.forEach(function(navs) {
+            if(navs !== clicked) {
+              navs.classList='ui-tabs__tab';
+            }
+          });
+        } else
+        if(tabActual === 'screenings'){
+          document.querySelector('.ui-tabs__content').innerHTML = screeningsHTML;
+          clicked.classList.toggle('ui-tabs__tab--selected');
+          navElements.forEach(function(navs) {
+            if(navs !== clicked) {
+              navs.classList='ui-tabs__tab';
+            }
+          });
+        } else
+        if(tabActual === 'press'){
+          document.querySelector('.ui-tabs__content').innerHTML = pressHTML;
+          clicked.classList.toggle('ui-tabs__tab--selected');
+          navElements.forEach(function(navs) {
+            if(navs !== clicked) {
+              navs.classList='ui-tabs__tab';
+            }
+          });
+        }
+  });
+});
+
 document.querySelector('.ui-tabs__content')
   .innerHTML = membershipHTML
